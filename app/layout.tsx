@@ -20,7 +20,10 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-export const metadata: Metadata = generateHomeMetadata();
+export const metadata: Metadata = {
+  ...generateHomeMetadata(),
+  metadataBase: new URL('https://excel-realty.com'),
+};
 
 export default function RootLayout({
   children,
