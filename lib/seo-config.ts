@@ -359,6 +359,7 @@ export const ROWAN_DATA = {
     twoBed: "$1200-1600",
     threeBed: "$1500-2100",
     fourBed: "$1800-2500",
+    perRoom: "$500-700",
   },
   popularNeighborhoods: [
     "Downtown Glassboro",
