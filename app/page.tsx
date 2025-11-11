@@ -2,7 +2,6 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { BUSINESS_INFO, SERVICE_AREAS } from '@/lib/seo-config';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -10,21 +9,10 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* Hero Section - Full Screen with Background Image */}
+        {/* Hero Section - Full Screen with Gradient Background */}
         <section className="relative h-[calc(100vh-5rem)] min-h-[600px] flex items-center justify-center">
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/hero-southjersey.jpg"
-              alt="Southern New Jersey Landscape"
-              fill
-              className="object-cover"
-              priority
-              quality={90}
-            />
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
-          </div>
+          {/* Gradient Background */}
+          <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900"></div>
 
           {/* Hero Content */}
           <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
@@ -81,15 +69,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Buy a Home - Full Width Image Card */}
+        {/* Buy a Home - Full Width Gradient Card */}
         <section className="relative h-[500px] md:h-[600px] group overflow-hidden">
-          <Image
-            src="/images/buy-home.jpg"
-            alt="Buy a Home in Southern New Jersey"
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 group-hover:scale-105 transition-transform duration-700"></div>
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">BUY A HOME</h2>
@@ -105,15 +88,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Sell a Home - Full Width Image Card */}
+        {/* Sell a Home - Full Width Gradient Card */}
         <section className="relative h-[500px] md:h-[600px] group overflow-hidden">
-          <Image
-            src="/images/sell-home.jpg"
-            alt="Sell Your Home in Southern New Jersey"
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-800 to-slate-900 group-hover:scale-105 transition-transform duration-700"></div>
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">SELL A HOME</h2>
@@ -129,15 +107,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Property Management - Full Width Image Card */}
+        {/* Property Management - Full Width Gradient Card */}
         <section className="relative h-[500px] md:h-[600px] group overflow-hidden">
-          <Image
-            src="/images/property-management.jpg"
-            alt="Property Management Services in Southern New Jersey"
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-900 via-orange-800 to-slate-900 group-hover:scale-105 transition-transform duration-700"></div>
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">PROPERTY MANAGEMENT</h2>
@@ -166,20 +139,32 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {SERVICE_AREAS.slice(0, 8).map(town => (
-                <Link
-                  key={town.slug}
-                  href={`/towns/${town.slug}`}
-                  className="group relative h-64 overflow-hidden bg-gray-200"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:from-black/70 transition-all duration-300"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="text-2xl font-serif font-bold mb-1">{town.name}</h3>
-                    <p className="text-sm text-gray-200">{town.county}</p>
-                    <p className="text-xs text-gray-300 mt-2">{town.population.toLocaleString()} residents</p>
-                  </div>
-                </Link>
-              ))}
+              {SERVICE_AREAS.slice(0, 8).map((town, index) => {
+                const gradients = [
+                  'from-slate-700 to-slate-900',
+                  'from-blue-700 to-blue-900',
+                  'from-emerald-700 to-emerald-900',
+                  'from-amber-700 to-amber-900',
+                  'from-purple-700 to-purple-900',
+                  'from-rose-700 to-rose-900',
+                  'from-cyan-700 to-cyan-900',
+                  'from-indigo-700 to-indigo-900',
+                ];
+                return (
+                  <Link
+                    key={town.slug}
+                    href={`/towns/${town.slug}`}
+                    className={`group relative h-64 overflow-hidden bg-gradient-to-br ${gradients[index]}`}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:from-black/70 transition-all duration-300"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h3 className="text-2xl font-serif font-bold mb-1">{town.name}</h3>
+                      <p className="text-sm text-gray-200">{town.county}</p>
+                      <p className="text-xs text-gray-300 mt-2">{town.population.toLocaleString()} residents</p>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
 
             <div className="text-center mt-12">
