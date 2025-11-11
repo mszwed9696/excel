@@ -4,6 +4,7 @@
  */
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { BUSINESS_INFO, SERVICE_AREAS, SERVICES } from '@/lib/seo-config';
 
 export default function Footer() {
@@ -19,9 +20,25 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-white font-serif text-xl font-bold mb-4">
-              {BUSINESS_INFO.name}
-            </h3>
+            {/* Logo and Brand */}
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="relative w-10 h-10 flex-shrink-0">
+                <Image
+                  src="/images/logo.png"
+                  alt={`${BUSINESS_INFO.name} Logo`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-base font-bold font-serif text-white leading-none">
+                  EXCEL REALTY
+                </span>
+                <span className="text-[10px] font-semibold text-gray-400 leading-none mt-0.5">
+                  & PROPERTY MANAGEMENT
+                </span>
+              </div>
+            </div>
             <p className="text-sm mb-4">
               {BUSINESS_INFO.description.substring(0, 150)}...
             </p>

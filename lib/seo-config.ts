@@ -4,10 +4,10 @@
  */
 
 export const BUSINESS_INFO = {
-  name: "Excel Realty Group",
-  legalName: "Excel Realty Group LLC",
+  name: "Excel Realty & Property Management",
+  legalName: "Excel Realty & Property Management LLC",
   phone: "(856) 555-0100",
-  email: "info@excelrealtygroup.com",
+  email: "info@excel-realty.com",
   address: {
     street: "123 Main Street",
     city: "Glassboro",
@@ -20,20 +20,20 @@ export const BUSINESS_INFO = {
     longitude: -75.1118,
   },
   hours: "Mon-Fri 9AM-6PM, Sat 10AM-4PM, Sun By Appointment",
-  foundingYear: 2024,
-  description: "Premier real estate brokerage serving Southern New Jersey. Expert agents specializing in residential sales, rentals, and Rowan University student housing across Gloucester County and surrounding areas.",
+  foundingYear: 2015,
+  description: "Over 10 years of excellence in Southern New Jersey real estate. Expert agents specializing in residential sales, rentals, property management, and Rowan University student housing across Gloucester County and surrounding areas.",
 
   // Social Media
   social: {
-    facebook: "https://facebook.com/excelrealtygroup",
-    instagram: "https://instagram.com/excelrealtygroup",
-    linkedin: "https://linkedin.com/company/excelrealtygroup",
-    youtube: "https://youtube.com/@excelrealtygroup",
+    facebook: "https://facebook.com/excelrealtypm",
+    instagram: "https://instagram.com/excelrealtypm",
+    linkedin: "https://linkedin.com/company/excel-realty-property-management",
+    youtube: "https://youtube.com/@excelrealtypm",
   },
 
   // Branding
   logo: "/images/logo.png",
-  slogan: "Your Southern New Jersey Real Estate Experts",
+  slogan: "Over a Decade of Service to Southern New Jersey",
 };
 
 // All 30 Southern NJ towns we serve

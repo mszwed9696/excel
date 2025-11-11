@@ -7,6 +7,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BUSINESS_INFO, SERVICE_AREAS } from '@/lib/seo-config';
 import Button from './Button';
 
@@ -19,24 +20,38 @@ export default function Header() {
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold font-serif text-primary-600">
-              {BUSINESS_INFO.name}
+          <Link href="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
+            <div className="relative w-12 h-12">
+              <Image
+                src="/images/logo.png"
+                alt={`${BUSINESS_INFO.name} Logo`}
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold font-serif text-primary leading-none">
+                EXCEL REALTY
+              </span>
+              <span className="text-xs font-semibold text-gray-600 leading-none mt-0.5">
+                & PROPERTY MANAGEMENT
+              </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <Link href="/services/buy" className="text-gray-700 hover:text-primary-600 font-medium">
+            <Link href="/services/buy" className="text-gray-700 hover:text-secondary-600 font-medium transition-colors">
               Buy
             </Link>
-            <Link href="/services/sell" className="text-gray-700 hover:text-primary-600 font-medium">
+            <Link href="/services/sell" className="text-gray-700 hover:text-secondary-600 font-medium transition-colors">
               Sell
             </Link>
-            <Link href="/services/rentals" className="text-gray-700 hover:text-primary-600 font-medium">
+            <Link href="/services/rentals" className="text-gray-700 hover:text-secondary-600 font-medium transition-colors">
               Rentals
             </Link>
-            <Link href="/rowan" className="text-gray-700 hover:text-primary-600 font-medium">
+            <Link href="/rowan" className="text-gray-700 hover:text-secondary-600 font-medium transition-colors">
               Rowan Housing
             </Link>
 
@@ -44,7 +59,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setTownsDropdownOpen(!townsDropdownOpen)}
-                className="text-gray-700 hover:text-primary-600 font-medium flex items-center"
+                className="text-gray-700 hover:text-secondary-600 font-medium flex items-center transition-colors"
               >
                 Towns
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,7 +73,7 @@ export default function Header() {
                     <Link
                       key={town.slug}
                       href={`/towns/${town.slug}`}
-                      className="text-sm text-gray-700 hover:text-primary-600 hover:bg-gray-50 px-2 py-1 rounded"
+                      className="text-sm text-gray-700 hover:text-secondary-600 hover:bg-gray-50 px-2 py-1 rounded transition-colors"
                       onClick={() => setTownsDropdownOpen(false)}
                     >
                       {town.name}
@@ -66,7 +81,7 @@ export default function Header() {
                   ))}
                   <Link
                     href="/towns"
-                    className="col-span-2 text-sm text-primary-600 hover:text-primary-700 font-semibold px-2 py-1 text-center border-t border-gray-200 mt-2 pt-2"
+                    className="col-span-2 text-sm text-secondary-600 hover:text-secondary-700 font-semibold px-2 py-1 text-center border-t border-gray-200 mt-2 pt-2"
                     onClick={() => setTownsDropdownOpen(false)}
                   >
                     View All 30 Towns →
@@ -75,17 +90,17 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="/blog" className="text-gray-700 hover:text-primary-600 font-medium">
+            <Link href="/blog" className="text-gray-700 hover:text-secondary-600 font-medium transition-colors">
               Blog
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-primary-600 font-medium">
+            <Link href="/about" className="text-gray-700 hover:text-secondary-600 font-medium transition-colors">
               About
             </Link>
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a href={`tel:${BUSINESS_INFO.phone}`} className="text-primary-600 font-semibold hover:text-primary-700">
+            <a href={`tel:${BUSINESS_INFO.phone}`} className="text-secondary-600 font-semibold hover:text-secondary-700 transition-colors">
               {BUSINESS_INFO.phone}
             </a>
             <Button href="/contact" variant="primary" size="md">
@@ -96,7 +111,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-primary-600"
+            className="lg:hidden p-2 text-gray-700 hover:text-secondary-600 transition-colors"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
